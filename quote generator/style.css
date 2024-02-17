@@ -1,0 +1,21 @@
+body{
+    font-family:"Neuropol X Free";
+    letter-spacing: 2px;
+    padding: 20px;
+    font-size: 22px;
+    background-color: black;
+    color: #00FFFF;
+    text-shadow: 0 0 10px #00FFFF; /*looks like light is appearing out of text*/
+
+}
+
+span{
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker{
+    50%{
+        /*want color of the blinker have more colors and have color again*/
+        opacity: 0; /*like no color*/
+    }
+}

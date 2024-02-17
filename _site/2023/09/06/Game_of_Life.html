@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Game of Life | CompSci Blogs</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Game of Life" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Game with grid of cells, each being dead or alive and evolving over generations of “people”" />
+<meta property="og:description" content="Game with grid of cells, each being dead or alive and evolving over generations of “people”" />
+<link rel="canonical" href="http://localhost:4200/student/2023/09/06/Game_of_Life.html" />
+<meta property="og:url" content="http://localhost:4200/student/2023/09/06/Game_of_Life.html" />
+<meta property="og:site_name" content="CompSci Blogs" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-09-06T00:00:00-07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Game of Life" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-09-06T00:00:00-07:00","datePublished":"2023-09-06T00:00:00-07:00","description":"Game with grid of cells, each being dead or alive and evolving over generations of “people”","headline":"Game of Life","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4200/student/2023/09/06/Game_of_Life.html"},"url":"http://localhost:4200/student/2023/09/06/Game_of_Life.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/student/assets/css/style.css?v=1b3d9f8bc323dc24d33094b79f457c2e8cdff56f">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+  <script src="/student/assets/js/respond.js"></script>
+
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#353535">
+<meta name="msapplication-navbutton-color" content="#353535">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/student/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+</head><body>
+
+  <div class="wrapper">
+    <header><header class="site-header">
+
+  <div id="header">
+    <nav>
+      <ul>
+        <li class="fork"><a href="/student/">Home</a></li>
+        <li class="fork"><a href="/student/compsci">CompSci</a></li>
+        <li class="fork"><a href="/student/blogs">Blogs</a></li>
+        <li class="title"><a href="/student/help">Help</a></li>
+        <li class="title"><a href="https://github.com/daisyzhang2024/student#readme">View On GitHub</a></li>
+      </ul>
+    </nav>
+  </div><!-- end header -->
+</header></header>
+
+
+    <section>
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 
+      class="post-title p-name" itemprop="name headline">Game of Life
+      • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></h1>
+
+    <p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-09-06T00:00:00-07:00" itemprop="datePublished">
+        Sep 6, 2023
+      </time>
+    </p><h2>Description</h2><p class="page-description">Game with grid of cells, each being dead or alive and evolving over generations of "people"</p></header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conway's Game of Life</title>
+    <style>
+        /* Define CSS styles for cells (alive and dead) */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(10, 20px); /* Adjust grid size here */
+            grid-template-rows: repeat(10, 20px); /* Adjust grid size here */
+            grid-gap: 1px; /* Adjust gap between cells */
+            aspect-ratio: 1; /* Maintain a square aspect ratio */
+        }
+        .cell {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ccc;
+            background-color: white;
+        }
+        .alive {
+            background-color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Conway's Game of Life</h1>
+    <button id="startStop">Start</button>
+    <button id="clear">Clear</button>
+    <div class="grid-container" id="grid"></div>
+
+<script>
+    const gridSize = 10; // Adjust grid size here
+    const gridContainer = document.getElementById("grid");
+    const startStopButton = document.getElementById("startStop");
+    const clearButton = document.getElementById("clear");
+    let isRunning = false;
+    let interval;
+
+    // Create the initial grid
+    for (let i = 0; i < gridSize * gridSize; i++) {
+        const cell = document.createElement("div");
+        cell.classList.add("cell");
+        gridContainer.appendChild(cell);
+    }
+
+    // Function to update the grid based on the game rules
+    function updateGrid() {
+        const cells = document.querySelectorAll(".cell");
+        // Your implementation of Conway's Game of Life rules here
+        // Iterate through cells and update their state (alive or dead)
+    }
+
+    // Function to start/stop the game
+    function toggleGame() {
+        if (isRunning) {
+            clearInterval(interval);
+            isRunning = false;
+            startStopButton.textContent = "Start";
+        } else {
+            interval = setInterval(updateGrid, 100); // Adjust the interval as needed
+            isRunning = true;
+            startStopButton.textContent = "Stop";
+        }
+    }
+
+    // Function to clear the grid
+    function clearGrid() {
+        const cells = document.querySelectorAll(".cell");
+        cells.forEach(cell => {
+            cell.classList.remove("alive");
+        });
+    }
+
+    // Event listeners
+    startStopButton.addEventListener("click", toggleGame);
+    clearButton.addEventListener("click", clearGrid);
+
+    // Additional event listeners and game logic go here
+
+</script>
+</body>
+</html>
+
+
+  </div><a class="u-url" href="/student/2023/09/06/Game_of_Life.html" hidden></a>
+</article>
+
+    </section>
+
+  </div>
+</body>
+
+
+</html>

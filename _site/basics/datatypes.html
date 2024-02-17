@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Basics of JS - datatypes | CompSci Blogs</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Basics of JS - datatypes" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An introduction to key topics in Web Programming" />
+<meta property="og:description" content="An introduction to key topics in Web Programming" />
+<link rel="canonical" href="http://localhost:4200/student/basics/datatypes" />
+<meta property="og:url" content="http://localhost:4200/student/basics/datatypes" />
+<meta property="og:site_name" content="CompSci Blogs" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-08-30T00:00:00-07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Basics of JS - datatypes" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-08-30T00:00:00-07:00","datePublished":"2023-08-30T00:00:00-07:00","description":"An introduction to key topics in Web Programming","headline":"Basics of JS - datatypes","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4200/student/basics/datatypes"},"url":"http://localhost:4200/student/basics/datatypes"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/student/assets/css/style.css?v=1b3d9f8bc323dc24d33094b79f457c2e8cdff56f">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+  <script src="/student/assets/js/respond.js"></script>
+
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#353535">
+<meta name="msapplication-navbutton-color" content="#353535">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/student/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+</head><body>
+
+  <div class="wrapper">
+    <header><header class="site-header">
+
+  <div id="header">
+    <nav>
+      <ul>
+        <li class="fork"><a href="/student/">Home</a></li>
+        <li class="fork"><a href="/student/compsci">CompSci</a></li>
+        <li class="fork"><a href="/student/blogs">Blogs</a></li>
+        <li class="title"><a href="/student/help">Help</a></li>
+        <li class="title"><a href="https://github.com/daisyzhang2024/student#readme">View On GitHub</a></li>
+      </ul>
+    </nav>
+  </div><!-- end header -->
+</header></header>
+
+
+    <section>
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 
+      class="post-title p-name" itemprop="name headline">Basics of JS - datatypes
+      • <span class="read-time" title="Estimated read time">
+    
+    
+      18 min read
+    
+</span></h1>
+
+    <p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-08-30T00:00:00-07:00" itemprop="datePublished">
+        Aug 30, 2023
+      </time>
+    </p><h2>Description</h2><p class="page-description">An introduction to key topics in Web Programming</p></header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <table>
+    <tr>
+        <td><img src="/student//images/logo.png" height="60" title="Frontend" alt="" /></td>
+        <td><a href="/student/basics/home">Home</a></td>
+        <td><a href="/student/basics/html">HTML</a></td>
+        <td><a href="/student/basics/javascript">JavaScript</a></td>
+        <td><a href="/student/basics/dom">DOM</a></td>
+        <td><a href="/student/basics/datatypes">Data Types</a></td>
+        <td><a href="/student/basics/errors">Errors</a></td>
+    </tr>
+</table>
+
+<h1 id="string-datatype">string datatype</h1>
+<ul>
+  <li>We discussed that strings store text</li>
+  <li>It is useful to know a few functions that can be used on string manipulation (see example below)</li>
+  <li>We can see the type of data using <code class="language-plaintext highlighter-rouge">typeof</code> operator</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="n">js</span>
+
+<span class="o">//</span> <span class="n">assign</span> <span class="n">variable</span>
+<span class="n">var</span> <span class="n">hello</span> <span class="o">=</span> <span class="s">"Hello World"</span><span class="p">;</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"variable: hello"</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">hello</span><span class="p">)</span>
+
+<span class="o">//</span> <span class="n">seeing</span> <span class="n">the</span> <span class="nb">type</span> <span class="n">of</span> <span class="n">this</span> <span class="n">data</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"variable: hello check typeof"</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">typeof</span> <span class="n">hello</span><span class="p">)</span>
+
+<span class="o">//</span> <span class="n">add</span> <span class="n">strings</span> <span class="n">together</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"string concatenation: hello + Rohan!"</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">hello</span> <span class="o">+</span> <span class="s">" Rohan!"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;IPython.core.display.Javascript object&gt;
+</code></pre></div></div>
+
+<h2 id="substring">.substring()</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="n">js</span>
+<span class="n">var</span> <span class="n">hello</span> <span class="o">=</span> <span class="s">"Hello World"</span><span class="p">;</span>
+
+<span class="o">//</span> <span class="n">getting</span> <span class="n">a</span> <span class="n">certain</span> <span class="n">component</span> <span class="n">of</span> <span class="n">this</span> <span class="n">text</span>
+<span class="o">//</span> <span class="p">(</span><span class="n">here</span> <span class="n">the</span> <span class="n">_</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">standin</span> <span class="k">for</span> <span class="n">the</span> <span class="n">space</span> <span class="n">character</span><span class="p">)</span>
+<span class="o">//</span> <span class="n">H</span>  <span class="n">e</span>  <span class="n">l</span>  <span class="n">l</span>  <span class="n">o</span>  <span class="n">_</span>  <span class="n">W</span>  <span class="n">o</span>  <span class="n">r</span>  <span class="n">l</span>  <span class="n">d</span>
+<span class="o">//</span> <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span>  <span class="mi">4</span>  <span class="mi">5</span>  <span class="mi">6</span>  <span class="mi">7</span>  <span class="mi">8</span>  <span class="mi">9</span>  <span class="mi">10</span>
+<span class="o">//</span> <span class="k">if</span> <span class="n">we</span> <span class="n">want</span> <span class="n">the</span> <span class="n">hello</span> <span class="n">component</span><span class="p">,</span> <span class="n">we</span> <span class="n">want</span> <span class="n">characters</span> <span class="mi">0</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="n">so</span> <span class="n">we</span> <span class="n">use</span> <span class="n">the</span> <span class="n">following</span> <span class="n">function</span>
+<span class="o">//</span> <span class="p">(</span><span class="n">note</span> <span class="n">how</span> <span class="n">we</span> <span class="n">use</span> <span class="mi">0</span> <span class="ow">and</span> <span class="mi">5</span> <span class="k">as</span> <span class="n">arguments</span><span class="p">,</span> <span class="n">the</span> <span class="n">last</span> <span class="n">character</span> <span class="ow">is</span> <span class="n">NOT</span> <span class="n">INCLUSIVE</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"substring: hello 0, 5"</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">hello</span><span class="p">.</span><span class="n">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;IPython.core.display.Javascript object&gt;
+</code></pre></div></div>
+
+<h2 id="touppercase-and-tolowercase">.toUpperCase() and .toLowerCase()</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="n">js</span>
+<span class="n">var</span> <span class="n">hello</span> <span class="o">=</span> <span class="s">"Hello World"</span><span class="p">;</span>
+
+<span class="o">//</span> <span class="n">useful</span> <span class="n">functions</span> <span class="n">to</span> <span class="n">make</span> <span class="n">string</span> <span class="n">lowercase</span> <span class="ow">or</span> <span class="n">uppercase</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"string convert to upper case: hello toUpperCase"</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">hello</span><span class="p">.</span><span class="n">toUpperCase</span><span class="p">())</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"string convert to lower case: hello toLowerCase"</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">hello</span><span class="p">.</span><span class="n">toLowerCase</span><span class="p">())</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;IPython.core.display.Javascript object&gt;
+</code></pre></div></div>
+
+<h2 id="includes">.includes()</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="n">js</span>
+<span class="n">var</span> <span class="n">hello</span> <span class="o">=</span> <span class="s">"Hello World"</span><span class="p">;</span>
+
+<span class="o">//</span> <span class="n">useful</span> <span class="n">function</span> <span class="n">to</span> <span class="n">check</span> <span class="k">if</span> <span class="n">one</span> <span class="n">string</span> <span class="ow">is</span> <span class="n">contained</span> <span class="ow">in</span> <span class="n">another</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"string includes: hello includes Rohan"</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">hello</span><span class="p">.</span><span class="n">includes</span><span class="p">(</span><span class="s">"Rohan"</span><span class="p">))</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"string includes: hello includes Hello"</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">hello</span><span class="p">.</span><span class="n">includes</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">))</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;IPython.core.display.Javascript object&gt;
+</code></pre></div></div>
+
+<h1 id="number-datatype">number datatype</h1>
+<ul>
+  <li>we discussed that numbers store numbers</li>
+  <li>here are some useful ideas in javascript to deal with numbers</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="n">js</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"Numbers info"</span><span class="p">)</span>
+
+<span class="o">//</span> <span class="n">assign</span> <span class="n">numbers</span> <span class="n">to</span> <span class="n">varialbes</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"variable: num1"</span><span class="p">)</span>
+<span class="n">var</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"variable: num2"</span><span class="p">)</span>
+<span class="n">var</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>
+
+
+<span class="o">//</span> <span class="n">simple</span> <span class="n">operations</span> <span class="k">with</span> <span class="n">numbers</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"Operations"</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"subtract: num1 - num2"</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">num1</span> <span class="o">-</span> <span class="n">num2</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"add: num1 + num2"</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"divide: num1 / num2"</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">num1</span> <span class="o">/</span> <span class="n">num2</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"multiply: num1 * num2"</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">num1</span> <span class="o">*</span> <span class="n">num2</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"remainder (modulo): num1 % num2"</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">num1</span> <span class="o">%</span> <span class="n">num2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;IPython.core.display.Javascript object&gt;
+</code></pre></div></div>
+
+<h1 id="number-formatting">number formatting</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="n">js</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"variable: num1"</span><span class="p">)</span>
+<span class="n">var</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"variable: num2"</span><span class="p">)</span>
+<span class="n">var</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>
+
+<span class="o">//</span> <span class="n">converting</span> <span class="n">numbers</span> <span class="n">to</span> <span class="n">text</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"number convert string: num1"</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">num1</span><span class="p">.</span><span class="n">toString</span><span class="p">())</span>
+
+<span class="o">//</span> <span class="n">rounding</span> <span class="n">a</span> <span class="n">number</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"round(num1 / num2)"</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="nb">round</span><span class="p">(</span><span class="n">num1</span> <span class="o">/</span> <span class="n">num2</span><span class="p">))</span>
+
+<span class="o">//</span> <span class="n">rounding</span> <span class="n">a</span> <span class="n">number</span> <span class="n">to</span> <span class="n">decimal</span> <span class="n">palces</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"set decimals to 2 places (num1 / num2)"</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">((</span><span class="n">num1</span> <span class="o">/</span> <span class="n">num2</span><span class="p">).</span><span class="n">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;IPython.core.display.Javascript object&gt;
+</code></pre></div></div>
+
+<h1 id="array-datatype">Array datatype</h1>
+<ul>
+  <li>an array is just a list of other datatypes</li>
+  <li>put all the items in square brackets</li>
+  <li>some useful methods below</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="n">js</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"Array: assigning a list of strings"</span><span class="p">)</span>
+<span class="n">var</span> <span class="n">str1</span> <span class="o">=</span> <span class="s">"1st string"</span>
+<span class="n">var</span> <span class="n">arr_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">str1</span><span class="p">,</span> <span class="s">"2nd string"</span><span class="p">,</span> <span class="s">"3rd string"</span><span class="p">]</span>
+<span class="o">//</span> <span class="n">seeing</span> <span class="n">what</span> <span class="ow">is</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">array</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">arr_data</span><span class="p">)</span>
+
+<span class="o">//</span> <span class="n">getting</span> <span class="n">one</span> <span class="n">thing</span> <span class="k">from</span> <span class="n">an</span> <span class="n">array</span>
+<span class="o">//</span> <span class="s">"A string"</span> <span class="s">"Other Data"</span> <span class="s">"more data"</span>
+<span class="o">//</span>    <span class="mi">0</span>           <span class="mi">1</span>            <span class="mi">2</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"Array: referencing a cell #1"</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">([</span><span class="n">arr_data</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>  <span class="o">//</span> <span class="n">zero</span> <span class="n">based</span> <span class="n">counting</span><span class="p">:</span> <span class="mi">1</span> <span class="ow">is</span> <span class="mi">2</span><span class="n">nd</span> <span class="n">cell</span>
+
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;IPython.core.display.Javascript object&gt;
+</code></pre></div></div>
+
+<h1 id="array-manipulation">array manipulation</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="n">js</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"Array: assigning a list of strings"</span><span class="p">)</span>
+<span class="n">var</span> <span class="n">str1</span> <span class="o">=</span> <span class="s">"1st string"</span>
+<span class="n">var</span> <span class="n">arr_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">str1</span><span class="p">,</span> <span class="s">"2nd string"</span><span class="p">,</span> <span class="s">"3rd string"</span><span class="p">]</span>
+<span class="o">//</span> <span class="n">seeing</span> <span class="n">what</span> <span class="ow">is</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">array</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">arr_data</span><span class="p">)</span>
+
+<span class="o">//</span> <span class="n">adding</span> <span class="n">something</span> <span class="n">new</span> <span class="n">to</span> <span class="n">the</span> <span class="n">array</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"Array: adding to list"</span><span class="p">)</span>
+<span class="n">arr_data</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="s">"4th string"</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">arr_data</span><span class="p">)</span>
+
+<span class="o">//</span> <span class="n">removing</span> <span class="n">the</span> <span class="n">first</span> <span class="n">element</span> <span class="n">of</span> <span class="n">array</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"Array: removing from front of list"</span><span class="p">)</span>
+<span class="n">arr_data</span><span class="p">.</span><span class="n">shift</span><span class="p">()</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">arr_data</span><span class="p">)</span>
+
+<span class="o">//</span> <span class="n">removing</span> <span class="n">the</span> <span class="n">last</span> <span class="n">element</span> <span class="n">of</span> <span class="n">array</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"Array: removing from end of list"</span><span class="p">)</span>
+<span class="n">arr_data</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">arr_data</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;IPython.core.display.Javascript object&gt;
+</code></pre></div></div>
+
+<h1 id="object-datatype">Object datatype</h1>
+
+<ul>
+  <li>store records as key-value pairs</li>
+  <li>are defined by enclosing data in curly braces <code class="language-plaintext highlighter-rouge">{}</code></li>
+  <li>allow access and modification using dot <code class="language-plaintext highlighter-rouge">.</code> or square bracket <code class="language-plaintext highlighter-rouge">[]</code> notation</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="n">js</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"Object: assigning key-value objects"</span><span class="p">)</span>
+<span class="n">var</span> <span class="n">obj</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s">"Safin"</span><span class="p">,</span>
+    <span class="n">age</span><span class="p">:</span> <span class="mi">13</span>
+<span class="p">};</span>
+
+<span class="o">//</span> <span class="n">The</span> <span class="n">following</span> <span class="ow">is</span> <span class="n">stored</span> <span class="ow">in</span> <span class="n">the</span> <span class="nb">object</span> <span class="n">called</span> <span class="s">"obj"</span>
+<span class="o">//</span> <span class="p">{</span>
+<span class="o">//</span>     <span class="n">name</span><span class="p">:</span> <span class="s">"Safin"</span><span class="p">,</span>
+<span class="o">//</span>     <span class="n">age</span><span class="p">:</span> <span class="mi">13</span>
+<span class="o">//</span> <span class="p">}</span>
+<span class="o">//</span>
+<span class="o">//</span> <span class="n">The</span> <span class="n">key</span> <span class="s">"name"</span> <span class="ow">is</span> <span class="n">associated</span> <span class="k">with</span> <span class="n">the</span> <span class="n">string</span> <span class="n">value</span> <span class="s">"Safin"</span>
+<span class="o">//</span> <span class="n">The</span> <span class="n">key</span> <span class="s">"age"</span> <span class="ow">is</span> <span class="n">associated</span> <span class="k">with</span> <span class="n">the</span> <span class="n">number</span> <span class="n">value</span> <span class="mi">13</span>
+<span class="o">//</span> <span class="n">Notice</span> <span class="n">that</span> <span class="n">keys</span> <span class="n">are</span> <span class="n">of</span> <span class="n">the</span> <span class="nb">type</span> <span class="s">"string"</span>
+
+<span class="o">//</span> <span class="k">print</span> <span class="n">obj</span> <span class="n">to</span> <span class="n">the</span> <span class="n">console</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
+<span class="o">//</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s">'Safin'</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="mi">13</span> <span class="p">}</span>
+<span class="o">//</span> <span class="n">Notice</span> <span class="n">that</span> <span class="n">single</span> <span class="n">quotes</span> <span class="s">' and double quotes " can be used interchangeably
+</span></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;IPython.core.display.Javascript object&gt;
+</code></pre></div></div>
+
+<h1 id="object-access">object access</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="n">js</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"Object: assigning key-value objects"</span><span class="p">)</span>
+<span class="n">var</span> <span class="n">obj</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s">"Safin"</span><span class="p">,</span>
+    <span class="n">age</span><span class="p">:</span> <span class="mi">13</span>
+<span class="p">};</span>
+
+<span class="o">//</span> <span class="n">The</span> <span class="n">following</span> <span class="ow">is</span> <span class="n">stored</span> <span class="ow">in</span> <span class="n">the</span> <span class="nb">object</span> <span class="n">called</span> <span class="s">"obj"</span>
+<span class="o">//</span> <span class="p">{</span>
+<span class="o">//</span>     <span class="n">name</span><span class="p">:</span> <span class="s">"Safin"</span><span class="p">,</span>
+<span class="o">//</span>     <span class="n">age</span><span class="p">:</span> <span class="mi">13</span>
+<span class="o">//</span> <span class="p">}</span>
+<span class="o">//</span>
+<span class="o">//</span> <span class="n">The</span> <span class="n">key</span> <span class="s">"name"</span> <span class="ow">is</span> <span class="n">associated</span> <span class="k">with</span> <span class="n">the</span> <span class="n">string</span> <span class="n">value</span> <span class="s">"Safin"</span>
+<span class="o">//</span> <span class="n">The</span> <span class="n">key</span> <span class="s">"age"</span> <span class="ow">is</span> <span class="n">associated</span> <span class="k">with</span> <span class="n">the</span> <span class="n">number</span> <span class="n">value</span> <span class="mi">13</span>
+<span class="o">//</span> <span class="n">Notice</span> <span class="n">that</span> <span class="n">keys</span> <span class="n">are</span> <span class="n">of</span> <span class="n">the</span> <span class="nb">type</span> <span class="s">"string"</span>
+
+<span class="o">//</span> <span class="k">print</span> <span class="n">obj</span> <span class="n">to</span> <span class="n">the</span> <span class="n">console</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
+<span class="o">//</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s">'Safin'</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="mi">13</span> <span class="p">}</span>
+<span class="o">//</span> <span class="n">Notice</span> <span class="n">that</span> <span class="n">single</span> <span class="n">quotes</span> <span class="s">' and double quotes " can be used interchangeably
+
+// To access certain values within an object, also known as an object'</span><span class="n">s</span> <span class="n">fields</span><span class="p">,</span>
+<span class="o">//</span> <span class="n">you</span> <span class="n">can</span> <span class="n">use</span> <span class="n">the</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="nb">object</span> <span class="n">suffixed</span> <span class="k">with</span> <span class="n">a</span> <span class="n">dot</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">field</span>
+<span class="o">//</span> <span class="ow">or</span> <span class="n">using</span> <span class="n">the</span> <span class="n">square</span> <span class="n">bracket</span> <span class="n">notation</span> <span class="n">shown</span> <span class="n">below</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"Object: using key name to access the name value (key notation)"</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s">"name"</span><span class="p">]);</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"Object: using key name to access the name value (dot notation)"</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">name</span><span class="p">);</span>
+<span class="o">//</span> <span class="o">-&gt;</span> <span class="n">Safin</span>
+
+<span class="o">//</span> <span class="n">Fields</span> <span class="n">of</span> <span class="n">an</span> <span class="nb">object</span> <span class="n">can</span> <span class="n">be</span> <span class="n">manipulated</span> <span class="n">similar</span> <span class="n">to</span> <span class="n">variables</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"Object: mutating the key name from Safin to John"</span><span class="p">)</span>
+<span class="n">obj</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">"John"</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">name</span><span class="p">);</span> <span class="o">//</span><span class="n">returning</span> <span class="n">the</span> <span class="n">name</span>
+<span class="o">//</span> <span class="o">-&gt;</span> <span class="n">John</span>
+
+<span class="o">//</span> <span class="n">A</span> <span class="n">key</span><span class="o">-</span><span class="n">value</span> <span class="n">pair</span> <span class="n">can</span> <span class="n">be</span> <span class="n">added</span> <span class="n">to</span> <span class="n">the</span> <span class="nb">object</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"Object: mutating the key name from Safin to John"</span><span class="p">)</span>
+<span class="n">obj</span><span class="p">[</span><span class="s">"ghid"</span><span class="p">]</span> <span class="o">=</span> <span class="s">"jm1021"</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
+<span class="o">//</span> <span class="n">Observe</span> <span class="n">new</span> <span class="n">key</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;IPython.core.display.Javascript object&gt;
+</code></pre></div></div>
+
+<h1 id="hacks">Hacks</h1>
+<p>Create a JavaScript snippet below with the following requirements:</p>
+<ul>
+  <li>Create an object representing yourself as a person. The object should have keys for your name, age, current classes, interests, and two more of your choosing</li>
+  <li>Your object must contain keys whose values are arrays. The arrays can be arrays of strings, numbers, or even other objects if you would like</li>
+  <li>Print the entire object after declaring it</li>
+  <li>Manipulate the arrays within the object and print the entire object as well as the specific changed key afterwards</li>
+  <li>Perform mathematical operations on fields in your object such as +, -, /, % etc. and print the results along with a message contextualizing them</li>
+  <li>Use typeof to determine the types of at least 3 fields in your object</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="n">js</span>
+<span class="o">//</span> <span class="n">put</span> <span class="n">your</span> <span class="n">javascript</span> <span class="n">code</span> <span class="n">here</span> <span class="p">(</span><span class="n">make</span> <span class="n">sure</span> <span class="n">to</span> <span class="n">run</span> <span class="n">it</span> <span class="ow">and</span> <span class="n">check</span> <span class="n">your</span> <span class="n">outputs</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">console</span><span class="p">)</span>
+<span class="n">var</span> <span class="n">obj</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s">"Daisy"</span><span class="p">,</span>
+    <span class="n">age</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+    <span class="n">classes</span><span class="p">:</span> <span class="s">"Lit, Bio, Gov, CSSE, Stats"</span><span class="p">,</span>
+    <span class="n">interests</span><span class="p">:</span> <span class="s">"reading, skating, math"</span><span class="p">,</span>
+    <span class="n">numOfSiblings</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">favColor</span><span class="p">:</span> <span class="s">"pink"</span><span class="p">,</span>
+    <span class="n">favNumber</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+<span class="p">};</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
+<span class="o">//</span> <span class="n">accessing</span> <span class="n">age</span> <span class="n">value</span> <span class="p">(</span><span class="n">key</span> <span class="n">notation</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s">"age"</span><span class="p">]);</span>
+<span class="o">//</span> <span class="n">accessing</span> <span class="n">favorite</span> <span class="n">color</span> <span class="p">(</span><span class="n">dot</span> <span class="n">notation</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">favColor</span><span class="p">);</span>
+<span class="o">//</span> <span class="n">accessing</span> <span class="n">interests</span><span class="p">,</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">form</span> <span class="n">of</span> <span class="n">an</span> <span class="n">array</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">([</span><span class="n">obj</span><span class="p">[</span><span class="s">"interests"</span><span class="p">]]);</span>
+<span class="o">//</span><span class="n">adding</span> <span class="n">element</span><span class="p">,</span> <span class="s">"height"</span>
+<span class="n">obj</span><span class="p">[</span><span class="s">"height"</span><span class="p">]</span> <span class="o">=</span> <span class="s">"5'7"</span><span class="p">;</span>
+<span class="o">//</span> <span class="n">printing</span> <span class="n">obj</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
+<span class="o">//</span> <span class="n">changing</span> <span class="n">age</span> <span class="n">to</span> <span class="mi">17</span>
+<span class="n">obj</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">17</span><span class="p">;</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">using</span> <span class="n">operators</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s">"age"</span><span class="p">]</span><span class="o">/</span><span class="n">obj</span><span class="p">[</span><span class="s">"favNumber"</span><span class="p">]);</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s">"numOfSiblings"</span><span class="p">]</span> <span class="o">+</span> <span class="n">obj</span><span class="p">[</span><span class="s">"favNumber"</span><span class="p">]);</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s">"numOfSiblings"</span><span class="p">]</span> <span class="o">-</span> <span class="n">obj</span><span class="p">[</span><span class="s">"favNumber"</span><span class="p">]);</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s">"age"</span><span class="p">]</span> <span class="o">%</span> <span class="n">obj</span><span class="p">[</span><span class="s">"favNumber"</span><span class="p">]);</span>
+
+<span class="o">//</span><span class="n">finding</span> <span class="nb">type</span> <span class="n">of</span> <span class="n">data</span> <span class="k">for</span> <span class="mi">3</span> <span class="n">fields</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">typeof</span> <span class="n">obj</span><span class="p">[</span><span class="s">"numOfSiblings"</span><span class="p">]);</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">typeof</span> <span class="n">obj</span><span class="p">[</span><span class="s">"name"</span><span class="p">]);</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">typeof</span> <span class="n">obj</span><span class="p">[</span><span class="s">"interests"</span><span class="p">]);</span>
+
+
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;IPython.core.display.Javascript object&gt;
+</code></pre></div></div>
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="daisyzhang2024/student"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/student/basics/datatypes" hidden></a>
+</article>
+
+    </section>
+
+  </div>
+</body>
+
+
+</html>

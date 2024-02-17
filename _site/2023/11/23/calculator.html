@@ -1,0 +1,129 @@
+<p>&lt;!DOCTYPE html&gt;</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Calculator!</title>
+</head>
+<body>
+ <div class="container">
+ <div class="calculator">
+    <input id="userInput" placeholder="0" />
+    <br />
+    <button class="btn" onclick="press(1)">1</button>
+    <button class="btn" onclick="press(2)">2</button>
+    <button class="btn" onclick="press(3)">3</button>
+    <button style="background: #ffb84d;" class="btn" onclick="press('+')">+</button>
+    <br />
+    <button class="btn" onclick="press(4)">4</button>
+    <button class="btn" onclick="press(5)">5</button>
+    <button class="btn" onclick="press(6)">6</button>
+    <button style="background: #ffcc80;" class="btn" onclick="press('-')">-</button>
+    <br />
+    <button class="btn" onclick="press(7)">7</button>
+    <button class="btn" onclick="press(8)">8</button>
+    <button class="btn" onclick="press(9)">9</button>
+    <button style="background: #ffe0b3;" class="btn" onclick="press('*')">*</button>
+    <br />
+    <button class="btn" onclick="press('.')">.</button>
+    <button class="btn" onclick="press(0)">0</button>
+    <button class="btn" onclick="erase()">C</button>
+    <button style="background: #fff5e6;" class="btn" onclick="press('/')">/</button>
+    <br />
+    <button class="btnEqual" onclick="equal()">=</button>
+ </div>
+ </div>
+</body>
+</html>
+
+<style>
+body{
+    overflow: hidden; /* removes scroll bar*/
+    background: linear-gradient(#f4f4ed, white);
+}
+
+.container{
+    border: 1px solid black;
+    width: 95%;
+    height: 100vh;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator{
+    width: 370px;
+    margin: auto;
+    border-radius: 2px;
+    background: #f2f2f2;
+    padding: 15px 15px 20px 20px; /*padding top right bottom left, like a clock*/
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+}
+#userInput{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 40px 5px;
+    background: whitesmoke;
+    text-align: right;
+    direction: ltr; /*direction from left to right on display, 3 6 is 36*/
+    outline: none;
+    border: none;
+}
+
+.btn{
+    width: 24%;
+    height: 45px;
+    border-radius: 1px;
+    border: none;
+    outline: none;
+    margin-top: 3px;
+    background: whitesmoke;
+}
+.btnEqual{
+    width: 99.2%;
+    height: 45px;
+    border-radius: 1px;
+    border: none;
+    outline: none;
+    margin-top: 3px;
+    background: whitesmoke;
+}
+
+.btn:hover, .btnEqual:hover{
+    background-color: rgba(128, 128, 128, 0.1);
+}
+
+@media(max-width:480px){
+    .btn{
+        width: 23.4%
+    }
+}
+@media(max-width:320px){
+    .btn{
+        width: 23%
+    }
+}
+</style>
+
+<script>
+const userInput = document.getElementById("userInput");
+var expression = '';
+// create press function
+function press(num){
+    expression += num;
+    console.log(expression);
+    userInput.value = expression; //have number show up 
+}
+
+function equal(){
+    userInput.value = eval(expression);
+    expression = ''; // resetting it
+}
+
+//clear function
+function erase(){
+    expression = '';
+    userInput.value = expression;
+}
+</script>
+

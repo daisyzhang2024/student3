@@ -1,0 +1,213 @@
+<p>&lt;!DOCTYPE html&gt;</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <title>To Do List</title>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <h2><i class="fa-solid fa-clipboard-check"></i>
+            To-do List</h2>
+            <div class="user-input">
+                <input id="input" type="text" /><button onclick="addItem()">Submit</button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+    <!--Where to put items-->
+        <div class="to-do-items"></div>
+    </div>
+</body>
+</html>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+/*remove default padding*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Patrick Hand', cursive;
+    background-image: linear-gradient(to right, #e22865, #37adcd);
+    color: white;
+}
+
+.container{
+    width: 95%;
+    margin: auto;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between; /*puts text on the left, input box on the right*/
+    flex-wrap: wrap; /*makes responsive, once "To-do List" text hits input box, input box goes down*/
+    width: 100%;
+    margin: 25px 0; /*top/bottom*/
+}
+
+.nav h2{
+    font-size: 2rem;
+}
+
+.user-input{
+    width: 350px;
+    text-align: center; /*input box at center of container*/
+}
+
+.user-input input{
+    width: 80%; /*takes up 80% of 350px, aka the container*/
+    outline: none;
+    padding: 8px;
+    border: 1px solid lightgray;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    /*animation, input box is gradually highlighted*/
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    transition: all 0.30s ease-in-out;
+}
+
+.user-input input:focus{
+    box-shadow: 0 0 5px #e22865;
+    border: 1px solid #e22865;
+}
+
+.user-input button{
+    cursor: pointer; /*hand effect when hovering*/
+    padding: 8px;
+    width: fit-content;
+    transition: 1s;
+    outline: none;
+    background-color: lightgray;
+    border: 1px solid lightgray;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.user-input button:hover{
+    background-color: transparent;
+    color: white;
+    /*when hover, turns transparent and color is white*/
+}
+
+.to-do-items{
+    width: 500px;
+    margin: auto;
+}
+
+.item{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+    padding: 16px;
+    color: #454545;
+    margin-top: 10px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    /*add highlight effect with hover*/
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    transition: all 0.30s ease-in-out;
+}
+
+.item:hover{
+    box-shadow: 0 0 20px #e22865;
+    border: 1px solid #e22865;
+}
+/*add icons*/
+.item i{
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+@media(max-width:768px){
+    .nav{
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .nav h2{
+        margin: 10px 0; /*top and bottom margin of 10px*/
+    }
+
+    .user-input{
+        width: 100%;
+    }
+
+    .to-do-items{
+        width: 100%;
+    }
+}
+
+@media(max-width:480px){
+    .user-input input{
+        width: 74%;
+    }
+}
+
+@media(max-width:320px){
+    .user-input input{
+        width: 60%;
+    }
+}
+
+
+</style>
+
+<script>
+const toDoItems = document.getElementsByClassName("to-do-items")[0];
+const input = document.getElementById("input");
+const trashIcon = document.getElementById("trash");
+
+//allows you to add item with enter key
+input.addEventListener("keydown", function(event){
+    if(event.key === "Enter")
+        addItem();
+})
+
+function addItem(){
+    var divParent = document.createElement("div");
+    var divChild = document.createElement("div");
+    //add inside div to allow flexbox, justify content to have on different sides
+    var checkIcon = document.createElement("i");
+    var trashIcon = document.createElement("i");
+
+    divParent.className = "item";
+    divParent.innerHTML = '<div>'+input.value+'</div>';
+
+    checkIcon.className = "fas fa-check-square";
+    checkIcon.style.color = "lightgray";
+    checkIcon.addEventListener("click", function(){
+        checkIcon.style.color = "limegreen";
+    })
+
+    divChild.appendChild(checkIcon);
+
+    trashIcon.className = "fas fa-trash";
+    trashIcon.style.color = "darkgray";
+    trashIcon.addEventListener("click", function(){
+        divParent.remove();
+    })
+
+    divChild.appendChild(trashIcon);
+
+    divParent.appendChild(divChild); //inside a div
+
+    toDoItems.appendChild(divParent);
+
+    input.value = '';
+}
+</script>
+

@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+    box-sizing: border-box;
+    font-family: 'Averia Serif Libre', Helvetica, sans-serif;
+}
+
+#my-cards{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    background-attachment: fixed;
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: center center;
+    background-image: url("img/forest.jpg");
+}
+
+#my-cards .card{
+    position: relative;
+    width: 380px;
+    height: auto;
+    margin: 20px 0;
+    cursor: pointer;
+    transition: 1s ease;
+    background-color: white;
+    box-shadow: 2px 2px 6px 0px #131212;
+}
+
+#my-cards .card:hover{
+    transform: scale(1.1);
+}
+
+#my-cards .card img{ 
+    width: 100%;
+}
+
+#my-cards .card:hover .image{
+    /* how bright do you want the image */
+    -webkit-filter: brightness(50%);
+    /* this is the animation takes 1 sec / we must set for all browsers */
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+#my-cards .middle{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    opacity: 0;
+    transition: .5s ease; /*how quickly you want outcome to appear on scroll card*/
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -webkit-filter: brightness(100%);
+}
+
+#my-cards .card:hover .middle{
+    opacity: 1;
+}
+
+.title{
+    text-align: center;
+    font-size: 4rem;
+    background-color: rgb(111, 168, 111);
+    color: white;
+    box-shadow: 2px 2px 6px 0px #131212;
+}
+
+@media(max-width:768px){
+    #my-cards .card{
+        width: 95%;
+    }
+
+    #my-cards .card:hover{
+        transform: scale(1);
+    }
+}

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Tic-Tac-Toe | CompSci Blogs</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Tic-Tac-Toe" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Simple Tic-Tac-Toe game made from youtube tutorial" />
+<meta property="og:description" content="Simple Tic-Tac-Toe game made from youtube tutorial" />
+<link rel="canonical" href="http://localhost:4200/student/2023/10/24/Tic_tac_toe_game.html" />
+<meta property="og:url" content="http://localhost:4200/student/2023/10/24/Tic_tac_toe_game.html" />
+<meta property="og:site_name" content="CompSci Blogs" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-10-24T00:00:00-07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Tic-Tac-Toe" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-10-24T00:00:00-07:00","datePublished":"2023-10-24T00:00:00-07:00","description":"Simple Tic-Tac-Toe game made from youtube tutorial","headline":"Tic-Tac-Toe","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4200/student/2023/10/24/Tic_tac_toe_game.html"},"url":"http://localhost:4200/student/2023/10/24/Tic_tac_toe_game.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/student/assets/css/style.css?v=1b3d9f8bc323dc24d33094b79f457c2e8cdff56f">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+  <script src="/student/assets/js/respond.js"></script>
+
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#353535">
+<meta name="msapplication-navbutton-color" content="#353535">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/student/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+</head><body>
+
+  <div class="wrapper">
+    <header><header class="site-header">
+
+  <div id="header">
+    <nav>
+      <ul>
+        <li class="fork"><a href="/student/">Home</a></li>
+        <li class="fork"><a href="/student/compsci">CompSci</a></li>
+        <li class="fork"><a href="/student/blogs">Blogs</a></li>
+        <li class="title"><a href="/student/help">Help</a></li>
+        <li class="title"><a href="https://github.com/daisyzhang2024/student#readme">View On GitHub</a></li>
+      </ul>
+    </nav>
+  </div><!-- end header -->
+</header></header>
+
+
+    <section>
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 
+      class="post-title p-name" itemprop="name headline">Tic-Tac-Toe
+      • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></h1>
+
+    <p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-10-24T00:00:00-07:00" itemprop="datePublished">
+        Oct 24, 2023
+      </time>
+    </p><h2>Description</h2><p class="page-description">Simple Tic-Tac-Toe game made from youtube tutorial</p></header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>&lt;!DOCTYPE html&gt;</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Tic-tac-toe JavaScript</title>
+    <link rel="stylesheet" href="styvles.css" />
+</head>
+<body>
+    <div id="gameboard"></div>
+    <p id="info"></p>
+</body>
+</html>
+
+<script>
+const gameBoard = document.querySelector('#gameboard')
+const infoDisplay = document.querySelector('#info')
+const startCells = [
+    "", "", "", "", "", "", "", "", ""
+    ]
+let go = "circle"
+infoDisplay.textContent = "Circle goes first"
+
+function createBoard(){
+    startCells.forEach((_cell, index) => {
+        const cellElement = document.createElement('div')
+        cellElement.classList.add('square')
+        cellElement.id = index //giving id to each box element
+        cellElement.addEventListener('click', addGo)
+        gameBoard.append(cellElement)
+    })
+}
+createBoard()
+
+
+function addGo(e) { //add circle or cross if nothing is there yet
+    console.log(e.target) //returns id of square each time you click it
+    const goDisplay = document.createElement('div')
+    goDisplay.classList.add(go) //add class of circle every time we click, append to whatever we click on
+    e.target.append(goDisplay) //append element that we just created
+    go = go === "circle" ? "cross" : "circle" //if this is true, return cross, otherwise return circle
+    infoDisplay.textContent = "it is now " + go + "'s go." //will read, it is cross's go if it was circle's go before
+    e.target.removeEventListener("click", addGo)
+    checkScore()
+}
+
+function checkScore() {
+    const allSquares = document.querySelectorAll(".square")
+    const winningCombos = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], //horizontal combos
+        [0, 3, 6], [1, 4, 7], [2, 5, 8] //vertical combos
+        [0, 4, 8], [2, 4, 6]
+    ]
+    winningCombos.forEach(array => {
+        const circleWins = array.every(cell => 
+            allSquares[cell].firstChild?.classList.contains('circle'))
+
+        if (circleWins) {
+            infoDisplay.textContent = "Circle Wins!"
+            allSquares.forEach(square => square.replaceWith(square.cloneNode(true)))
+            return
+        }
+    })
+    
+    winningCombos.forEach(array => {
+        const crossWins = array.every(cell => 
+            allSquares[cell].firstChild?.classList.contains('cross'))
+        if (crossWins) {
+            infoDisplay.textContent = "Cross Wins!"
+            allSquares.forEach(square => square.replaceWith(square.cloneNode(true)))
+            return
+        }
+    })
+}
+
+</script>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+#gameboard { /*hashtag for ID*/
+    width: 300px;
+    height: 300px;
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+    border: solid 1px black;
+}
+
+.square { /*class of square*/
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border: solid 2px black;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center; /*centering O*/
+    align-items: center;
+}
+
+.circle {
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    border: 15px solid blue;
+    box-sizing: border-box;
+}
+
+.cross {
+    height: 90px;
+    width: 90px;
+    position: relative;
+    transform: rotate(45deg);
+}
+
+.cross:before, .cross:after {
+    content: "";
+    position: absolute;
+    background-color: red;
+}
+
+.cross:before {
+    left: 50%;
+    width: 30%;
+    margin-left: -15%;
+    height: 100%;
+}
+
+.cross:after {
+    top: 50%;
+    height: 30%;
+    margin-top: -15%;
+    width: 100%;
+}
+</style>
+
+
+  </div><a class="u-url" href="/student/2023/10/24/Tic_tac_toe_game.html" hidden></a>
+</article>
+
+    </section>
+
+  </div>
+</body>
+
+
+</html>

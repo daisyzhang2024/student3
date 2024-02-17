@@ -1,0 +1,32 @@
+<p>&lt;!DOCTYPE html&gt;</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Button!</title>
+</head>
+<body>
+    <div class="container"> 
+    <button onclick="changeColors()">Click Me</button>
+    </div>
+</body>
+</html>
+
+<style>
+.container {
+    display: flex; /*turn into flex box*/
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /*container as big as the screen*/
+}
+</style>
+
+<script>
+var index = 0;
+function changeColors() {
+    var colors = ["red", "blue", "orange", "yellow", "green", "purple"];
+    document.getElementsByTagName("body")[0].style.background = colors[index++]; /*initialize to 0, turns background red, index++ returns blue, then orange, yellow,...*/
+    if(index > colors.length - 1) /*last element*/
+    index = 0
+    }
+</script>
+

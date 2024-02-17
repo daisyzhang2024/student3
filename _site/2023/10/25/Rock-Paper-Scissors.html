@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Rock-Paper-Scissors | CompSci Blogs</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Rock-Paper-Scissors" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Simple Rock-Paper-Scissors game made from youtube tutorial" />
+<meta property="og:description" content="Simple Rock-Paper-Scissors game made from youtube tutorial" />
+<link rel="canonical" href="http://localhost:4200/student/2023/10/25/Rock-Paper-Scissors.html" />
+<meta property="og:url" content="http://localhost:4200/student/2023/10/25/Rock-Paper-Scissors.html" />
+<meta property="og:site_name" content="CompSci Blogs" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-10-25T00:00:00-07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Rock-Paper-Scissors" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-10-25T00:00:00-07:00","datePublished":"2023-10-25T00:00:00-07:00","description":"Simple Rock-Paper-Scissors game made from youtube tutorial","headline":"Rock-Paper-Scissors","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4200/student/2023/10/25/Rock-Paper-Scissors.html"},"url":"http://localhost:4200/student/2023/10/25/Rock-Paper-Scissors.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/student/assets/css/style.css?v=1b3d9f8bc323dc24d33094b79f457c2e8cdff56f">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+  <script src="/student/assets/js/respond.js"></script>
+
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#353535">
+<meta name="msapplication-navbutton-color" content="#353535">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/student/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+</head><body>
+
+  <div class="wrapper">
+    <header><header class="site-header">
+
+  <div id="header">
+    <nav>
+      <ul>
+        <li class="fork"><a href="/student/">Home</a></li>
+        <li class="fork"><a href="/student/compsci">CompSci</a></li>
+        <li class="fork"><a href="/student/blogs">Blogs</a></li>
+        <li class="title"><a href="/student/help">Help</a></li>
+        <li class="title"><a href="https://github.com/daisyzhang2024/student#readme">View On GitHub</a></li>
+      </ul>
+    </nav>
+  </div><!-- end header -->
+</header></header>
+
+
+    <section>
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 
+      class="post-title p-name" itemprop="name headline">Rock-Paper-Scissors
+      • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></h1>
+
+    <p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-10-25T00:00:00-07:00" itemprop="datePublished">
+        Oct 25, 2023
+      </time>
+    </p><h2>Description</h2><p class="page-description">Simple Rock-Paper-Scissors game made from youtube tutorial</p></header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>&lt;!DOCTYPE html&gt;</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <div id="gameDiv">
+        <h1 class="gameText" id="playerText">Player: </h1>
+        <h1 class="gameText" id="computerText">Computer: </h1>
+        <h1 class="gameText" id="resultText">Result: </h1>
+        <button class="choiceBtn">ROCK</button>
+        <button class="choiceBtn">PAPER</button>
+        <button class="choiceBtn">SCISSORS</button>
+    </div>
+</body>
+</html>
+
+<script>
+    const playerText = document.querySelector("#playerText"); //querySelector method to select HTML element, finding any elements with id playerText
+    const computerText = document.querySelector("#computerText");
+    const resultText = document.querySelector("#resultText"); //resultText ID
+    const choiceBtns = document.querySelectorAll(".choiceBtn"); //selecting choice button class
+    //creating three variables
+    //player and computer variable assigned a string
+    let player; 
+    let computer;
+    let result;
+    choiceBtns.forEach(button => button.addEventListener("click", ()=>{
+        player = button.textContent;
+        computerTurn();
+        //set text with choices
+        playerText.textContent = `Player: ${player}`; //template literal, placeholder of player
+        computerText.textContent = `Computer: ${computer}`;
+        resultText.textContent = checkWinner();
+    }));
+    function computerTurn(){
+        const randNum = Math.floor(Math.random()*3) + 1; //get a random number between 1 and 3
+        switch(randNum) {
+            case 1: 
+                computer = "ROCK";
+                break;
+            case 2:
+                computer = "PAPER";
+                break;
+            case 3:
+                computer = "SCISSORS";
+                break; 
+        } 
+    } 
+    // defining checkWinner() function
+    function checkWinner() {
+        if(player == computer) {
+            return "Draw!"; 
+        }
+        else if(computer == "ROCK") { //if the computer is equal to rock, is the player equal to paper?, if so then return string (win), if false return different string (lose)
+            return (player == "PAPER") ? "You Win!" : "You Lose!"
+        }
+        else if(computer == "PAPER") { //if the computer is equal to paper, is the player equal to scissors?, if so then return string (win), if false return different string (lose)
+            return (player == "SCISSORS") ? "You Win!" : "You Lose!"
+        }
+        else if(computer == "SCISSORS") { //if the computer is equal to scissors, is the player equal to rock?, if so then return string (win), if false return different string (lose)
+            return (player == "ROCK") ? "You Win!" : "You Lose!"
+        }
+    }
+</script>
+
+<style>
+    .choiceBtn { /*class choiceBtn*/
+        line-height: 30px;
+        width: 150px
+    }
+    #gameDiv { /*id*/
+        font-family: 'Brush Script MT', cursive;
+        border: 3px solid;
+        border-radius: 25px;
+        padding: 10px;
+        background-color: lightgrey;
+        text-align: center;
+}
+    #playerText {
+        color: blue;
+    }
+    #computerText {
+        color: red;
+    }
+    #resultText {
+        color: hotpink;
+    }
+</style>
+
+
+  </div><a class="u-url" href="/student/2023/10/25/Rock-Paper-Scissors.html" hidden></a>
+</article>
+
+    </section>
+
+  </div>
+</body>
+
+
+</html>
